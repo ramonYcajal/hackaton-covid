@@ -18,24 +18,13 @@ body{
 .row-margin{
     margin-bottom: 2rem;
 }
-.-row-1{
+.columna{
     width: 100%;
     height: 15rem;
     border: 20px solid white;
     border-radius:2rem;
 }
-.-row-2{
-    width: 100%;
-    height: 15rem;
-    border: 20px solid white;
-    border-radius:2rem;
-}
-.-row-3{
-    width: 100%;
-    height: 15rem;
-    border: 20px solid white;
-    border-radius:2rem;
-}
+
 .danger{
     border-color: rgb(249, 160, 160);
 }
