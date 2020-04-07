@@ -40,7 +40,7 @@ fetch(url)
             }
             i++;
         }
-        console.log(listaPaises);
+        
         //Mostrar los datos en las cajas correspondientes
         for (let i = 0; i < listaPaises.length; i++) {
             //creo los componentes a inyectar en el html
@@ -72,10 +72,9 @@ fetch(url)
         //comprobar los datos y cambiar colores
         var flag = false;
         let spainIndex = listaPaises.findIndex(pais => pais.code === "ES")
-        console.log(spainIndex);
+        
         var spain = document.querySelector('#ES');
-        var colum = document.querySelectorAll('.col')
-        console.log(colum);
+
         for (let i = 0; i < listaPaises.length; i++) {
 
             var col = document.querySelector('#' + listaPaises[i].code)
