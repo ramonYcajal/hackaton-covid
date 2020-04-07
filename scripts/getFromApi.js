@@ -71,7 +71,6 @@ fetch(url)
 
         //comprobar los datos y cambiar colores
         var flag = false;
-        let spainIndex = listaPaises.findIndex(pais => pais.code === "ES")
         
         var spain = document.querySelector('#ES');
 
