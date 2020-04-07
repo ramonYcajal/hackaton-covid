@@ -1,21 +1,21 @@
 import { Country } from './Country.js';
 var url = 'https://api.covid19api.com/summary';
-var listaPaise = [];
+var listaPrueba = [];
 var listaPaises = [];
 let p = new Country("UNITED KINGDOM", "GB", 595, 48436);
 let p1 = new Country("PORTUGAL", "PT", 70, 11278);
 let p2 = new Country("FRANCE", "FR", 2925, 93773);
 let p3 = new Country("MOROCCO", "MA", 8, 1021);
 let p4 = new Country("SPAIN", "ES", 800, 131646);
-listaPaises.push(p);
+listaPrueba.push(p);
 p.setPercent()
-listaPaises.push(p1);
+listaPrueba.push(p1);
 p1.setPercent();
-listaPaises.push(p2);
+listaPrueba.push(p2);
 p2.setPercent();
-listaPaises.push(p3);
+listaPrueba.push(p3);
 p3.setPercent();
-listaPaises.push(p4);
+listaPrueba.push(p4);
 p4.setPercent();
 fetch(url)
     .then(response => {
@@ -28,7 +28,7 @@ fetch(url)
             if (data.Countries[i].CountryCode == "PT" || data.Countries[i].CountryCode == "GB" || data.Countries[i].CountryCode == "FR" || data.Countries[i].CountryCode == "MA" || data.Countries[i].CountryCode == "ES") {
                 let p = new Country(data.Countries[i].Country, data.Countries[i].CountryCode, data.Countries[i].NewConfirmed, data.Countries[i].TotalConfirmed)
                 p.setPercent();
-                listaPaise.push(p);
+                listaPaises.push(p);
                 count++;
             }
             i++;
@@ -47,17 +47,19 @@ fetch(url)
             iconNewConfirmed.classList.add("far", "fa-arrow-alt-circle-up");
             newConfirmed.appendChild(iconNewConfirmed);
             iconPercent.classList.add("fas", "fa-burn");
-            percent.appendChild(iconPercent);
+            
             //paso los datos que me interesan del array de objetos a las etiquetas html
             tittle.innerHTML = listaPaises[i].name;
             newConfirmed.innerHTML = listaPaises[i].newConfirmed;
             percent.innerHTML = listaPaises[i].percent + "%";
-
+            
             //agrego los componentes
             col.appendChild(tittle);
             newConfirmed.appendChild(iconNewConfirmed);
+            percent.appendChild(iconPercent);
             col.appendChild(newConfirmed);
             col.appendChild(percent);
+            
         }
 
         //comprobar los datos y cambiar colores
