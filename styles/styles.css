@@ -21,18 +21,30 @@ body{
     border: 20px solid white;
     border-radius:2rem;
     margin:0 0 2rem 0;
+    cursor: pointer;
 }
 .popup{
-    width: 50px;
-    height: 50px;
+    opacity: 0;
+    width: 5rem;
+    height: 6rem;
     position: absolute;
-    background-color: black;
-    transform: translate(450%,150%);
-    transition:2s;
+    background-color: rgba(0, 0, 0, 0.479);
+    transform: translate(286%,60%);
+    transition:.3s;
+    border-radius:.3rem;
+    
 }
 .popup-hover{
-    opacity: 0;
+    opacity: 1;
 }
+li{
+    list-style: none;
+    font-size: 1rem;
+    margin-left:.5rem;
+    color:white;
+    font-weight: bold;
+}
+
 .danger{
     border-color: rgb(249, 160, 160);
 }

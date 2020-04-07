@@ -30,26 +30,39 @@ fetch(url)
         return response.json();
     })
     .then(data => {
+       
         var count = 0, i = 0;
         while (count < 5) {
+            
             if (data.Countries[i].CountryCode == "PT" || data.Countries[i].CountryCode == "GB" || data.Countries[i].CountryCode == "FR" || data.Countries[i].CountryCode == "MA" || data.Countries[i].CountryCode == "ES") {
-                let p = new Country(data.Countries[i].Country, data.Countries[i].CountryCode, data.Countries[i].NewConfirmed, data.Countries[i].TotalConfirmed)
+                let p = new Country(data.Countries[i].Country, data.Countries[i].CountryCode, data.Countries[i].NewConfirmed, data.Countries[i].TotalConfirmed, data.Countries[i].NewDeaths, data.Countries[i].NewRecovered, data.Countries[i].TotalDeaths, data.Countries[i].TotalRecovered)
                 p.setPercent();
                 listaPaises.push(p);
                 count++;
             }
             i++;
-        }
-        
+        }//while
+       
+
         //Mostrar los datos en las cajas correspondientes
         for (let i = 0; i < listaPaises.length; i++) {
             //creo los componentes a inyectar en el html
             var col = document.querySelector('#' + listaPaises[i].code)
+            var extendedInformation=document.querySelector('#' + listaPaises[i].code+">.popup")
             var tittle = document.createElement('h1');
             var iconNewConfirmed = document.createElement('i');
             var iconPercent = document.createElement('i');
             var newConfirmed = document.createElement('p');
             var percent = document.createElement('p');
+            var list=document.createElement('ul');
+            var newDeaths=document.createElement('li');
+            var totalDeaths=document.createElement('li');
+            var newRecovered=document.createElement('li');
+            var totalRecovered=document.createElement('li');
+            list.appendChild(newDeaths);
+            list.appendChild(totalDeaths);
+            list.appendChild(newRecovered);
+            list.appendChild(totalRecovered);
             //iconos de flecha y llama tomados de fontawesome
             iconNewConfirmed.classList.add("far", "fa-arrow-alt-circle-up");
             newConfirmed.appendChild(iconNewConfirmed);
@@ -59,19 +72,25 @@ fetch(url)
             tittle.innerHTML = listaPaises[i].name;
             newConfirmed.innerHTML = listaPaises[i].newConfirmed;
             percent.innerHTML = listaPaises[i].percent + "%";
+            newDeaths.innerHTML=listaPaises[i].newDeaths;
             
+            totalDeaths.innerHTML=listaPaises[i].totalDeaths;
+            newRecovered.innerHTML=listaPaises[i].newRecovered;
+            totalRecovered.innerHTML=listaPaises[i].totalRecovered;
             //agrego los componentes
             col.appendChild(tittle);
             newConfirmed.appendChild(iconNewConfirmed);
             percent.appendChild(iconPercent);
             col.appendChild(newConfirmed);
             col.appendChild(percent);
+            extendedInformation.appendChild(list);
             
+          
         }
 
         //comprobar los datos y cambiar colores
         var flag = false;
-        
+
         var spain = document.querySelector('#ES');
 
         for (let i = 0; i < listaPaises.length; i++) {
@@ -89,9 +108,9 @@ fetch(url)
                 col.classList.add("danger");
 
             }
-            
+
         }//for
-        if (flag==true) {
+        if (flag == true) {
             spain.classList.remove("right")
             spain.classList.add("warning");
         }
