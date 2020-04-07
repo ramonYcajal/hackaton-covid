@@ -12,7 +12,7 @@ body{
 }
 .contenedor{
    
-    margin-top: 3rem;
+    transform: translatey(10.5%);
 
 }
 
@@ -22,12 +22,22 @@ body{
     border-radius:2rem;
     margin:0 0 2rem 0;
 }
-
+.popup{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: black;
+    transform: translate(450%,150%);
+    transition:2s;
+}
+.popup-hover{
+    opacity: 0;
+}
 .danger{
     border-color: rgb(249, 160, 160);
 }
 .warning{
-    border-color: rgb(245, 243, 194);
+    border-color:  rgb(243, 240, 170);
 }
 .right{
     border-color: rgb(174, 245, 173);
