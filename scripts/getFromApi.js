@@ -1,19 +1,18 @@
 import { Country } from './Country.js';
 var url = 'https://api.covid19api.com/summary';
-var listaPrueba = [];
+
 var listaPaises = [];
+
+/**
+ * VARIABLE listaPrueba PARA HACER PRUEBAS
+ * VARIABLE listaPaises PARA MOSTRAR DATOS REALES CONSUMIDOS DEL API.
+ * API USADA:https://api.covid19api.com/summary
+ var listaPrueba = [];
 let p = new Country("UNITED KINGDOM", "GB", 595, 48436);
 let p1 = new Country("PORTUGAL", "PT", 70, 11278);
 let p2 = new Country("FRANCE", "FR", 2925, 93773);
 let p3 = new Country("MOROCCO", "MA", 8, 1021);
 let p4 = new Country("SPAIN", "ES", 800, 131646);
-/**
- * VARIABLE listaPrueba PARA HACER PRUEBAS
- * VARIABLE listaPaises PARA MOSTRAR DATOS REALES CONSUMIDOS DEL API.
- * API USADA:https://api.covid19api.com/summary
- */
-
-
 listaPrueba.push(p);
 p.setPercent()
 listaPrueba.push(p1);
@@ -24,6 +23,9 @@ listaPrueba.push(p3);
 p3.setPercent();
 listaPrueba.push(p4);
 p4.setPercent();
+ */
+
+
 fetch(url)
     .then(response => {
 
