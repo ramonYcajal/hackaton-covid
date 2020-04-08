@@ -50,8 +50,16 @@ fetch(url)
             var col = document.querySelector('#' + listaPaises[i].code)
             var extendedInformation=document.querySelector('#' + listaPaises[i].code+">.popup")
             var tittle = document.createElement('h1');
+            //iconos
             var iconNewConfirmed = document.createElement('i');
             var iconPercent = document.createElement('i');
+            var iconNewDeaths=document.createElement('i');
+            var iconTotalDeaths=document.createElement('i');
+            var iconNewRecovered=document.createElement('i');
+            var iconTotalRecovered=document.createElement('i');
+            var iconPlusTotalDeaths=document.createElement('i');
+            var iconPlusTotalRecovered=document.createElement('i');
+
             var newConfirmed = document.createElement('p');
             var percent = document.createElement('p');
             var list=document.createElement('ul');
@@ -65,7 +73,13 @@ fetch(url)
             list.appendChild(totalRecovered);
             //iconos de flecha y llama tomados de fontawesome
             iconNewConfirmed.classList.add("far", "fa-arrow-alt-circle-up");
-            newConfirmed.appendChild(iconNewConfirmed);
+            iconNewDeaths.classList.add("far","fa-sad-tear");
+            iconTotalDeaths.classList.add("far","fa-sad-tear");
+            iconTotalRecovered.classList.add("far", "fa-smile-beam");
+            iconNewRecovered.classList.add("far", "fa-smile-beam");
+            iconPlusTotalDeaths.classList.add("fas","fa-plus-circle")
+            iconPlusTotalRecovered.classList.add("fas","fa-plus-circle")
+            newRecovered.appendChild(iconNewConfirmed);
             iconPercent.classList.add("fas", "fa-burn");
             
             //paso los datos que me interesan del array de objetos a las etiquetas html
@@ -73,13 +87,19 @@ fetch(url)
             newConfirmed.innerHTML = listaPaises[i].newConfirmed;
             percent.innerHTML = listaPaises[i].percent + "%";
             newDeaths.innerHTML=listaPaises[i].newDeaths;
-            
+            newDeaths.appendChild(iconNewDeaths);
             totalDeaths.innerHTML=listaPaises[i].totalDeaths;
+            totalDeaths.appendChild(iconTotalDeaths);
+            totalDeaths.appendChild(iconPlusTotalDeaths);
             newRecovered.innerHTML=listaPaises[i].newRecovered;
+            newRecovered.appendChild(iconNewRecovered);
             totalRecovered.innerHTML=listaPaises[i].totalRecovered;
+            totalRecovered.appendChild(iconTotalRecovered)
+            totalRecovered.appendChild(iconPlusTotalRecovered);
             //agrego los componentes
             col.appendChild(tittle);
             newConfirmed.appendChild(iconNewConfirmed);
+            
             percent.appendChild(iconPercent);
             col.appendChild(newConfirmed);
             col.appendChild(percent);
