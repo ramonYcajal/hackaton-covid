@@ -29,15 +29,20 @@ body{
     height: 6rem;*/
     position: absolute;
     background-color: rgba(0, 0, 0, 0.479);
-    transform: translate(156%,38%);
+    /*transform: translate(156%,38%);*/
     transition:.3s;
     border-radius:.3rem;
     box-sizing: border-box;
     padding:0 .5rem 0 0;
-    
+    left:13rem;
+    top:3rem;
+    z-index:10
 }
 .popup-hover{
     opacity: 1;
+}
+.popup-hover:hover{
+    transform: scale(2);
 }
 li{
     list-style: none;
